@@ -117,15 +117,11 @@ export default class App extends React.Component {
                     onPress={() => {
                         //console.log(this.state);
 
-                        axios({
-                            method: 'post',
-                            url: 'http://localhost/carwash2/public/user',
-                            data: {
-                                name: this.handleName,
-                                email: this.handleEmail,
-                                password: this.handlePsw,
-                            },
-                        });
+                        axios
+                            .post('http://localhost/carwash2/public/user', this.state)
+                            .then(function (response) {
+                                console.log('salvo com sucesso');
+                            });
                     }}>
                     <Text style={styles.text}>Cadastar</Text>
                 </TouchableOpacity>
