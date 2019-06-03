@@ -39,6 +39,7 @@ export default class App extends React.Component {
     handlePsw = text => {
         this.setState({ password: text });
     };
+
     render() {
         return (
             <ImageBackground source={bgimage} style={styles.backgroundContainer}>
@@ -57,6 +58,7 @@ export default class App extends React.Component {
                     <TextInput
                         style={styles.input}
                         placeholder={'Username'}
+                        onChangeText={this.handleName}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid="transparent"
                     />
@@ -72,6 +74,7 @@ export default class App extends React.Component {
                     <TextInput
                         style={styles.input}
                         placeholder={'Email'}
+                        onChangeText={this.handleEmail}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid="transparent"
                     />
@@ -87,6 +90,7 @@ export default class App extends React.Component {
                     <TextInput
                         style={styles.input}
                         placeholder={'Senha'}
+                        onChangeText={this.handlePsw}
                         secureTextEntry={true}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid="transparent"
