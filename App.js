@@ -8,7 +8,7 @@ import {
 } from 'react-navigation';
 
 
-import AppNavigator from './Navigation/AppNavigator';
+import AppNavigator from './navigation/AppNavigator';
 
 export default class App extends React.Component {
   render() {
