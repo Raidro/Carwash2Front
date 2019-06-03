@@ -49,7 +49,6 @@ export default class App extends React.Component {
           <TextInput
             style={styles.input}
             placeholder={'Email'}
-            secureTextEntry={true}
             placeholderTextColor={'rgba(255,255,255,0.7)'}
             underlineColorAndroid="transparent"
           />
