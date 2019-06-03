@@ -8,10 +8,11 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  Button,
 } from 'react-native';
 
-import bgimage from '../assets/images/Android-BackgroundChart.png';
-import logoimage from '../assets/images/e4ec2acf005fe764835f1ffb1a00e4b4-bolhas-cobertas-icone-de-carro.png';
+import bgimage from '../assets/Android-BackgroundChart.png';
+import logoimage from '../assets/e4ec2acf005fe764835f1ffb1a00e4b4-bolhas-cobertas-icone-de-carro.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 const { width: WIDTH } = Dimensions.get('window');
 
@@ -21,7 +22,7 @@ export default class App extends React.Component {
     this.state = {
       showPass: true,
       press: false,
-    }
+    };
   }
 
   showPass = () => {
@@ -30,7 +31,7 @@ export default class App extends React.Component {
     } else {
       this.setState({ showPass: true, press: false });
     }
-  }
+  };
 
   render() {
     return (
@@ -83,6 +84,14 @@ export default class App extends React.Component {
 
         <TouchableOpacity style={styles.btnLogin}>
           <Text style={styles.text}>Logar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.btnCadastrar}
+          onPress={() => {
+            this.props.navigation.navigate('Register');
+          }}>
+          <Text style={styles.text}>Cadastrar</Text>
         </TouchableOpacity>
       </ImageBackground>
     );
@@ -147,6 +156,15 @@ const styles = StyleSheet.create({
   },
 
   btnLogin: {
+    width: WIDTH - 55,
+    height: 45,
+    borderRadius: 25,
+    backgroundColor: '#432577',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+
+  btnCadastrar: {
     width: WIDTH - 55,
     height: 45,
     borderRadius: 25,
