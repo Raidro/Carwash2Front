@@ -17,7 +17,6 @@ import axios from 'axios';
 const { width: WIDTH } = Dimensions.get('window');
 
 export default class App extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -74,6 +73,7 @@ export default class App extends React.Component {
                     <TextInput
                         style={styles.input}
                         placeholder={'Email'}
+                        secureTextEntry={true}
                         onChangeText={this.handleEmail}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid="transparent"
@@ -90,8 +90,8 @@ export default class App extends React.Component {
                     <TextInput
                         style={styles.input}
                         placeholder={'Senha'}
-                        onChangeText={this.handlePsw}
                         secureTextEntry={true}
+                        onChangeText={this.handlePsw}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid="transparent"
                     />
@@ -111,8 +111,6 @@ export default class App extends React.Component {
                         underlineColorAndroid="transparent"
                     />
                 </View>
-
-
 
                 <TouchableOpacity
                     style={styles.btnCadastrar}
@@ -175,6 +173,7 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         fontSize: 16,
         paddingLeft: 45,
+        //marginTop: 80,
         backgroundColor: 'rgba(0,0,0,0.35)',
         color: 'rgba(255,255,255,0.7)',
         marginHorizontal: 25,
