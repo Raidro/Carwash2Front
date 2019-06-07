@@ -9,7 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Button,
-  Flatlist,
+  FlatList,
 } from 'react-native';
 
 import bgimage from '../assets/images/Android-BackgroundChart.png';
@@ -69,8 +69,8 @@ export default class App extends React.Component {
     const response = await axios.get(
       'http://192.168.1.108/carwash2/public/user'
     ).then(({data}) => {
-      const { name } = data;
-      this.setState({ name });
+      const name = data.data;
+      this.setState({ name: name });
     }).catch(error => {
       console.log(error);
     });
@@ -89,7 +89,7 @@ export default class App extends React.Component {
           <Text style={styles.logoText}>USUARIOS</Text>
         </View>
         <View>
-          <Flatlist
+          <FlatList
             contentContainerStyle={styles.list}
             data={this.state.name}
             keyExtractor={item => item.id}
