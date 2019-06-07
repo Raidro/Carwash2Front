@@ -15,6 +15,6 @@ export default createAppContainer(createSwitchNavigator(
     List: ListScreen,
   },
   {
-    initialRouteName: 'List',
+    initialRouteName: 'Index',
   }
 ));
