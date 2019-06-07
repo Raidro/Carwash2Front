@@ -34,8 +34,15 @@ const styles = StyleSheet.create({
 });*/
 
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Dimensions,
+} from 'react-native';
 import { Constants, MapView } from 'expo';
+const { width: WIDTH } = Dimensions.get('window');
 
 export default class App extends Component {
   state = {
@@ -55,10 +62,16 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <MapView
-          style={{ alignSelf: 'stretch', height: 550 }}
+          style={{ alignSelf: 'stretch', height: 430 }}
           region={this.state.mapRegion}
           onRegionChange={this._handleMapRegionChange}
         />
+
+        <View style={styles.container}>
+          <TouchableOpacity onPress={() => {}} style={styles.btnCadastrar}>
+            <Text style={styles.text}> Solicitar </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -67,9 +80,22 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //alignItems: 'center',
-    //justifyContent: 'center',
+    alignItems: 'center',
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#ecf0f1',
+  },
+
+  btnCadastrar: {
+    width: WIDTH - 55,
+    height: 45,
+    borderRadius: 25,
+    backgroundColor: '#432577',
+    justifyContent: 'center',
+    marginTop: 120,
+  },
+  text: {
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });
