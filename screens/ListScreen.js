@@ -44,13 +44,25 @@ const styles = StyleSheet.create({
 
   list: {
     alignItems: 'center',
-    backgroundColor: '#dcda48',
+    //backgroundColor: '#dcda48',
     flexGrow: 1,
     margin: 4,
     padding: 20,
     borderRadius: 25,
-    marginBottom: 10,
+    //marginBottom: 10,
+
   },
+
+  itemContainer: {
+    alignItems: 'center',
+    backgroundColor: '#496283',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#rgba(255,255,255,0.1)',
+    padding: 20,
+    
+  },
+
 });
 
 export default class App extends React.Component {
@@ -68,7 +80,7 @@ export default class App extends React.Component {
   loadName = async () => {
     const response = await axios.get(
       'http://192.168.1.108/carwash2/public/user'
-    ).then(({data}) => {
+    ).then(({ data }) => {
       const name = data.data;
       this.setState({ name: name });
     }).catch(error => {
@@ -88,7 +100,7 @@ export default class App extends React.Component {
         <View>
           <Text style={styles.logoText}>USUARIOS</Text>
         </View>
-        <View>
+        <View >
           <FlatList
             contentContainerStyle={styles.list}
             data={this.state.name}
