@@ -17,53 +17,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 const { width: WIDTH } = Dimensions.get('window');
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: [],
-    };
-  }
-
-  componentDidMount() {
-    this.loadName();
-  }
-
-  loadName = async () => {
-    const response = await axios.get(
-      'http://192.168.1.108/carwash2/public/user'
-    );
-
-    const { name } = response.data;
-
-    this.setState({ name });
-  };
-
-  renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Text style={styles.text}>{item.name}</Text>
-    </View>
-  );
-
-  render() {
-    return (
-      <ImageBackground source={bgimage} style={styles.backgroundContainer}>
-        <View>
-          <Text style={styles.logoText}>USUARIOS</Text>
-        </View>
-        <View>
-          <Flatlist
-            contentContainerStyle={styles.list}
-            data={this.state.name}
-            keyExtractor={item => item.id}
-            renderItem={this.renderItem}
-          />
-        </View>
-      </ImageBackground>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
   backgroundContainer: {
     flex: 1,
@@ -99,3 +52,51 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: [],
+    };
+  }
+
+  componentDidMount() {
+    this.loadName();
+  }
+
+  loadName = async () => {
+    const response = await axios.get(
+      'http://192.168.1.108/carwash2/public/user'
+    ).then(({data}) => {
+      const { name } = data;
+      this.setState({ name });
+    }).catch(error => {
+      console.log(error);
+    });
+  };
+
+  renderItem = ({ item }) => (
+    <View style={styles.itemContainer}>
+      <Text style={styles.text}>{item.name}</Text>
+    </View>
+  );
+
+  render() {
+    return (
+      <ImageBackground source={bgimage} style={styles.backgroundContainer}>
+        <View>
+          <Text style={styles.logoText}>USUARIOS</Text>
+        </View>
+        <View>
+          <Flatlist
+            contentContainerStyle={styles.list}
+            data={this.state.name}
+            keyExtractor={item => item.id}
+            renderItem={this.renderItem}
+          />
+        </View>
+      </ImageBackground>
+    );
+  }
+}
