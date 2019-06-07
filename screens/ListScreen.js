@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: '500',
     marginTop: 60,
-    marginBottom: 150,
+    marginBottom: 50,
     opacity: 0.7,
   },
 
@@ -43,24 +43,22 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    alignItems: 'center',
-    //backgroundColor: '#dcda48',
+    //alignItems: 'center',
     flexGrow: 1,
     margin: 4,
     padding: 20,
     borderRadius: 25,
-    //marginBottom: 10,
 
   },
 
   itemContainer: {
-    alignItems: 'center',
+    //alignItems: 'center',
     backgroundColor: '#496283',
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#rgba(255,255,255,0.1)',
     padding: 20,
-    
+    marginBottom:10,
   },
 
 });
@@ -100,7 +98,7 @@ export default class App extends React.Component {
         <View>
           <Text style={styles.logoText}>USUARIOS</Text>
         </View>
-        <View >
+        <View>
           <FlatList
             contentContainerStyle={styles.list}
             data={this.state.name}
