@@ -9,6 +9,8 @@ export default createAppContainer(createSwitchNavigator(
   {
     Login: LoginScreen,
     Register: RegisterScreen,
+    Index: IndexScreen,
+    List: ListScreen,
   },
   {
     initialRouteName: 'Login',
