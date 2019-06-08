@@ -10,19 +10,20 @@ import {
   TouchableOpacity,
   Button,
   FlatList,
+  Alert,
 } from 'react-native';
 
-import bgimage from '../assets/images/Android-BackgroundChart.png';
+import bgimage from './assets/Android-BackgroundChart.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 const { width: WIDTH } = Dimensions.get('window');
+import { Constants } from 'expo';
 
 const styles = StyleSheet.create({
   backgroundContainer: {
     flex: 1,
     width: null,
     height: null,
-    //justifyContent: 'center',
     alignItems: 'center',
   },
 
@@ -43,16 +44,13 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    //alignItems: 'center',
     flexGrow: 1,
     margin: 4,
     padding: 20,
     borderRadius: 25,
-
   },
 
   itemContainer: {
-    //alignItems: 'center',
     backgroundColor: '#496283',
     borderWidth: 1,
     borderRadius: 5,
@@ -60,7 +58,6 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 10,
   },
-
 });
 
 export default class App extends React.Component {
@@ -76,19 +73,35 @@ export default class App extends React.Component {
   }
 
   loadName = async () => {
-    const response = await axios.get(
-      'http://192.168.1.108/carwash2/public/user'
-    ).then(({ data }) => {
-      const name = data.data;
-      this.setState({ name: name });
-    }).catch(error => {
-      console.log(error);
-    });
+    const response = await axios
+      .get('http://192.168.1.108/carwash2/public/user')
+      .then(({ data }) => {
+        const name = data.data;
+        this.setState({ name: name });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.text}>{item.name}</Text>
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={async () => {
+            await axios
+              .delete('http://192.168.1.108/carwash2/public/user/' + item.id)
+              .then(response => {
+                console.log(response);
+                console.log(response.status);
+                this.loadRents();
+              });
+          }}
+          style={styles.btnCadastrar}>
+          <Text style={styles.text}> Deletar Usuario </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -98,6 +111,7 @@ export default class App extends React.Component {
         <View>
           <Text style={styles.logoText}>USUARIOS</Text>
         </View>
+
         <View>
           <FlatList
             contentContainerStyle={styles.list}
