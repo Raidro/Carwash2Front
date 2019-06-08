@@ -13,7 +13,7 @@ import {
   Alert,
 } from 'react-native';
 
-import bgimage from './assets/Android-BackgroundChart.png';
+import bgimage from '../assets/images/Android-BackgroundChart.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 const { width: WIDTH } = Dimensions.get('window');
