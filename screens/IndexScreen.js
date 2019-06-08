@@ -42,6 +42,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Constants, MapView } from 'expo';
+import Icon from 'react-native-vector-icons/Ionicons';
 const { width: WIDTH } = Dimensions.get('window');
 
 export default class App extends Component {
@@ -67,8 +68,18 @@ export default class App extends Component {
           onRegionChange={this._handleMapRegionChange}
         />
 
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <TouchableOpacity style={styles.btnRedondo}>
+            <Icon name={'ios-car'} size={30} color="#01a699" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.btnRedondo}>
+            <Icon name={'ios-car'} size={30} color="#01a699" />
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => {}} style={styles.btnCadastrar}>
+          <TouchableOpacity onPress={() => { }} style={styles.btnCadastrar}>
             <Text style={styles.text}> Solicitar </Text>
           </TouchableOpacity>
         </View>
@@ -91,11 +102,24 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: '#432577',
     justifyContent: 'center',
-    marginTop: 120,
+    marginTop: 45,
   },
   text: {
     color: 'rgba(255,255,255,0.7)',
     fontSize: 16,
     textAlign: 'center',
+  },
+
+  btnRedondo: {
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 70,
+    height: 70,
+    backgroundColor: '#fff',
+    borderRadius: 50,
+    marginTop: 30,
+    marginHorizontal: 40,
   },
 });
