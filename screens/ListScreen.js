@@ -58,6 +58,11 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 10,
   },
+  text2: {
+    color: 'rgba(0,0,0,0.7)',
+    fontSize: 25,
+    textAlign: 'center',
+  },
 });
 
 export default class App extends React.Component {
@@ -99,7 +104,7 @@ export default class App extends React.Component {
               });
           }}
           style={styles.btnCadastrar}>
-          <Text style={styles.text}> Deletar Usuario </Text>
+          <Text style={styles.text2}> Deletar Usuario </Text>
         </TouchableOpacity>
       </View>
     </View>
