@@ -67,19 +67,22 @@ export default class App extends Component {
           region={this.state.mapRegion}
           onRegionChange={this._handleMapRegionChange}
         />
-
-        <View style={{ flex: 1, flexDirection: 'row' }}>
-          <TouchableOpacity style={styles.btnRedondo}>
-            <Icon name={'ios-car'} size={30} color="#01a699" />
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.btnRedondo}>
-            <Icon name={'ios-car'} size={30} color="#01a699" />
-          </TouchableOpacity>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity style={styles.btnRedondo}>
+              <Icon name={'ios-car'} size={30} color="#01a699" />
+            </TouchableOpacity>
+            <Text style={styles.txtIcon}> Lavagem Simples </Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity style={styles.btnRedondo}>
+              <Icon name={'ios-car'} size={30} color="#01a699" />
+            </TouchableOpacity>
+            <Text style={styles.txtIcon}> Lavagem Completa </Text>
+          </View>
         </View>
-
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => { }} style={styles.btnCadastrar}>
+          <TouchableOpacity onPress={() => {}} style={styles.btnCadastrar}>
             <Text style={styles.text}> Solicitar </Text>
           </TouchableOpacity>
         </View>
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: '#432577',
     justifyContent: 'center',
-    marginTop: 45,
+    marginTop: 20,
   },
   text: {
     color: 'rgba(255,255,255,0.7)',
@@ -121,5 +124,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: 30,
     marginHorizontal: 40,
+  },
+
+  txtIcon: {
+    color: 'rgba(0,0,0,0.7)',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
