@@ -1,38 +1,3 @@
-/*import React, { Component } from 'react';
-import {
-  Text,
-  TextInput,
-  View,
-  StyleSheet,
-  ImageBackground,
-  Image,
-  Dimensions,
-  TouchableOpacity,
-  Button,
-} from 'react-native';
-
-import bgimage from '../assets/Android-BackgroundChart.png';
-import Icon from 'react-native-vector-icons/Ionicons';
-const { width: WIDTH } = Dimensions.get('window');
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <ImageBackground source={bgimage} style={styles.backgroundContainer} />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  backgroundContainer: {
-    flex: 1,
-    width: null,
-    height: null,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});*/
-
 import React, { Component } from 'react';
 import {
   View,
@@ -63,7 +28,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <MapView
-          style={{ alignSelf: 'stretch', height: 430 }}
+          style={{ alignSelf: 'stretch', height: 340 }}
           region={this.state.mapRegion}
           onRegionChange={this._handleMapRegionChange}
         />
@@ -82,8 +47,13 @@ export default class App extends Component {
           </View>
         </View>
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => {}} style={styles.btnCadastrar}>
+          <TouchableOpacity onPress={() => { }} style={styles.btnCadastrar}>
             <Text style={styles.text}> Solicitar </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <TouchableOpacity onPress={() => { this.props.navigation.navigate('List'); }} style={styles.btnCadastrar}>
+            <Text style={styles.text}> Usuarios </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -105,7 +75,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: '#432577',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 15,
   },
   text: {
     color: 'rgba(255,255,255,0.7)',
@@ -123,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 50,
     marginTop: 30,
-    marginHorizontal: 40,
+    marginHorizontal: 55,
   },
 
   txtIcon: {
