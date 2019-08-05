@@ -118,7 +118,7 @@ export default class App extends React.Component {
                         //console.log(this.state);
 
                         axios
-                            .post('http://192.168.1.108/carwash2/public/user', this.state)
+                            .post('YOUR_IP/carwash2/public/user', this.state)
                             .then(function (response) {
                                 console.log('salvo com sucesso');
                             });
